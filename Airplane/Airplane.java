@@ -21,11 +21,25 @@ public class Airplane
   // CONSTRUCTOR
   //------------------------
 
+  public Airplane() 
+  {
+    brand = "Standard";
+    price = 0;
+    horsepower = 0;
+  }
+
   public Airplane(String aBrand, double aPrice, int aHorsepower)
   {
     brand = aBrand;
     price = aPrice;
     horsepower = aHorsepower;
+  }
+
+  public Airplane(Airplane aAirplane) 
+  {
+    brand = aAirplane.brand;
+    price = aAirplane.price;
+    horsepower = aAirplane.horsepower;
   }
 
   //------------------------
@@ -71,15 +85,20 @@ public class Airplane
     return horsepower;
   }
 
-  public void delete()
-  {}
-
-
   public String toString()
   {
     return super.toString() + "["+
             "brand" + ":" + getBrand()+ "," +
             "price" + ":" + getPrice()+ "," +
             "horsepower" + ":" + getHorsepower()+ "]";
+  }
+
+  public boolean equals(Airplane aAirplane)
+  {
+    if (this.brand == aAirplane.brand && this.price == aAirplane.price && this.horsepower == aAirplane.horsepower)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

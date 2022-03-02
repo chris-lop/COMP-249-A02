@@ -19,10 +19,22 @@ public class Multirotor extends Helicopter
   // CONSTRUCTOR
   //------------------------
 
+  public Multirotor()
+  {
+    super();
+    numRotors = 0;
+  }
+
   public Multirotor(String aBrand, double aPrice, int aHorsepower, int aNumCylinders, int aCreationYear, int aPassengerCap, int aNumRotors)
   {
     super(aBrand, aPrice, aHorsepower, aNumCylinders, aCreationYear, aPassengerCap);
     numRotors = aNumRotors;
+  }
+
+  public Multirotor(Multirotor aMultirotor)
+  {
+    super(aMultirotor);
+    numRotors = aMultirotor.numRotors;
   }
 
   //------------------------
@@ -42,15 +54,18 @@ public class Multirotor extends Helicopter
     return numRotors;
   }
 
-  public void delete()
-  {
-    super.delete();
-  }
-
-
   public String toString()
   {
     return super.toString() + "["+
             "numRotors" + ":" + getNumRotors()+ "]";
+  }
+
+  public boolean equals(Multirotor aMultirotor)
+  {
+    if (super.equals(aMultirotor) && this.numRotors == aMultirotor.numRotors)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

@@ -21,12 +21,28 @@ public class Helicopter extends Airplane
   // CONSTRUCTOR
   //------------------------
 
+  public Helicopter() 
+  {
+    super();
+    numCylinders = 0;
+    creationYear = 0;
+    passengerCap = 0;
+  }
+
   public Helicopter(String aBrand, double aPrice, int aHorsepower, int aNumCylinders, int aCreationYear, int aPassengerCap)
   {
     super(aBrand, aPrice, aHorsepower);
     numCylinders = aNumCylinders;
     creationYear = aCreationYear;
     passengerCap = aPassengerCap;
+  }
+
+  public Helicopter(Helicopter aHelicopter) 
+  {
+    super(aHelicopter);
+    numCylinders = aHelicopter.numCylinders;
+    creationYear = aHelicopter.creationYear;
+    passengerCap = aHelicopter.passengerCap;
   }
 
   //------------------------
@@ -72,11 +88,6 @@ public class Helicopter extends Airplane
     return passengerCap;
   }
 
-  public void delete()
-  {
-    super.delete();
-  }
-
 
   public String toString()
   {
@@ -84,5 +95,15 @@ public class Helicopter extends Airplane
             "numCylinders" + ":" + getNumCylinders()+ "," +
             "creationYear" + ":" + getCreationYear()+ "," +
             "passengerCap" + ":" + getPassengerCap()+ "]";
+  }
+
+  // Check super implementation
+  public boolean equals(Helicopter aHelicopter)
+  {
+    if (super.equals(aHelicopter) && this.numCylinders == aHelicopter.numCylinders && this.creationYear == aHelicopter.creationYear && this.passengerCap == aHelicopter.passengerCap)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

@@ -19,12 +19,22 @@ public class AgriculturalDrone extends UAV
   //------------------------
   // CONSTRUCTOR
   //------------------------
-
+  public AgriculturalDrone() {
+    super();
+    this.brand = "Standard";
+    this.carryCap = 0;
+  }
   public AgriculturalDrone(double aWeight, double aPrice, String aBrand, int aCarryCap)
   {
     super(aWeight, aPrice);
     brand = aBrand;
     carryCap = aCarryCap;
+  }
+
+  public AgriculturalDrone(AgriculturalDrone newDrone) {
+    super(newDrone);
+    this.brand = newDrone.brand;
+    this.carryCap = newDrone.carryCap;
   }
 
   //------------------------
@@ -57,16 +67,20 @@ public class AgriculturalDrone extends UAV
     return carryCap;
   }
 
-  public void delete()
-  {
-    super.delete();
-  }
-
 
   public String toString()
   {
     return super.toString() + "["+
             "brand" + ":" + getBrand()+ "," +
             "carryCap" + ":" + getCarryCap()+ "]";
+  }
+  
+  public boolean equals(AgriculturalDrone aAgriculturalDrone)
+  {
+    if (super.equals(aAgriculturalDrone) && this.brand == aAgriculturalDrone.brand && this.carryCap == aAgriculturalDrone.carryCap)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

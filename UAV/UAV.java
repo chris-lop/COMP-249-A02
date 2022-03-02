@@ -20,10 +20,22 @@ public class UAV
   // CONSTRUCTOR
   //------------------------
 
+  public UAV()
+  {
+    weight = 0;
+    price = 0;
+  }
+
   public UAV(double aWeight, double aPrice)
   {
     weight = aWeight;
     price = aPrice;
+  }
+
+  public UAV(UAV aUAV)
+  {
+    weight = aUAV.weight;
+    price = aUAV.price;
   }
 
   //------------------------
@@ -56,14 +68,19 @@ public class UAV
     return price;
   }
 
-  public void delete()
-  {}
-
-
   public String toString()
   {
     return super.toString() + "["+
             "weight" + ":" + getWeight()+ "," +
             "price" + ":" + getPrice()+ "]";
+  }
+
+  public boolean equals(UAV aUAV)
+  {
+    if (this.weight == aUAV.weight && this.price == aUAV.price)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

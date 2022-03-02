@@ -19,12 +19,22 @@ public class MAV extends UAV
   //------------------------
   // CONSTRUCTOR
   //------------------------
-
+  public MAV() {
+    super();
+    model = "Standard";
+    size = 0.0;
+  }
   public MAV(double aWeight, double aPrice, String aModel, double aSize)
   {
     super(aWeight, aPrice);
     model = aModel;
     size = aSize;
+  }
+
+  public MAV(MAV newMAV) {
+    super(newMAV);
+    this.model = newMAV.model;
+    this.size = newMAV.size;
   }
 
   //------------------------
@@ -57,16 +67,20 @@ public class MAV extends UAV
     return size;
   }
 
-  public void delete()
-  {
-    super.delete();
-  }
-
 
   public String toString()
   {
     return super.toString() + "["+
             "model" + ":" + getModel()+ "," +
             "size" + ":" + getSize()+ "]";
+  }
+
+  public boolean equals(MAV aMAV)
+  {
+    if (super.equals(aMAV) && this.model == aMAV.model && this.size == aMAV.size)
+    {
+      return true;
+    } 
+    else return false;
   }
 }

@@ -19,10 +19,22 @@ public class Quadcopter extends Helicopter
   // CONSTRUCTOR
   //------------------------
 
+  public Quadcopter() 
+  {
+    super();
+    maxFlySpeed = 0;
+  }
+
   public Quadcopter(String aBrand, double aPrice, int aHorsepower, int aNumCylinders, int aCreationYear, int aPassengerCap, int aMaxFlySpeed)
   {
     super(aBrand, aPrice, aHorsepower, aNumCylinders, aCreationYear, aPassengerCap);
     maxFlySpeed = aMaxFlySpeed;
+  }
+
+  public Quadcopter(Quadcopter aQuadcopter) 
+  {
+    super(aQuadcopter);
+    maxFlySpeed = aQuadcopter.maxFlySpeed;
   }
 
   //------------------------
@@ -42,15 +54,19 @@ public class Quadcopter extends Helicopter
     return maxFlySpeed;
   }
 
-  public void delete()
-  {
-    super.delete();
-  }
-
 
   public String toString()
   {
     return super.toString() + "["+
             "maxFlySpeed" + ":" + getMaxFlySpeed()+ "]";
+  }
+
+  public boolean equals(Quadcopter aQuadcopter)
+  {
+    if (super.equals(aQuadcopter) && this.maxFlySpeed == aQuadcopter.maxFlySpeed)
+    {
+      return true;
+    } 
+    else return false;
   }
 }
