@@ -70,9 +70,7 @@ public class AgriculturalDrone extends UAV
 
   public String toString()
   {
-    return super.toString() + "["+
-            "brand" + ":" + getBrand()+ "," +
-            "carryCap" + ":" + getCarryCap()+ "]";
+    return  "This Agricultural Drone is manufactured by "+ this.brand +". " + super.toString() + "It can carry up to "+this.carryCap+" Kg.";
   }
   
   public boolean equals(AgriculturalDrone aAgriculturalDrone)

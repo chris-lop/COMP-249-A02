@@ -95,6 +95,7 @@ public class Airplane
 
   public boolean equals(Airplane aAirplane)
   {
+    // Use getClass
     if (this.brand == aAirplane.brand && this.price == aAirplane.price && this.horsepower == aAirplane.horsepower)
     {
       return true;

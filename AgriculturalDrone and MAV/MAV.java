@@ -70,9 +70,7 @@ public class MAV extends UAV
 
   public String toString()
   {
-    return super.toString() + "["+
-            "model" + ":" + getModel()+ "," +
-            "size" + ":" + getSize()+ "]";
+    return "This MAV is a "+ this.model +". " + super.toString() + "Its size is "+this.size+".";
   }
 
   public boolean equals(MAV aMAV)

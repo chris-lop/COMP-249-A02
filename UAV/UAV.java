@@ -70,9 +70,7 @@ public class UAV
 
   public String toString()
   {
-    return super.toString() + "["+
-            "weight" + ":" + getWeight()+ "," +
-            "price" + ":" + getPrice()+ "]";
+    return "This UAV weighs "+this.weight+", and costs "+this.price+"$.";
   }
 
   public boolean equals(UAV aUAV)
